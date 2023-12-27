@@ -66,10 +66,12 @@ CMD [ "" ]
 
 
 2. docker build -t (yourbuildname) cypressautomationwithJoanMedia:1.0 .
-3. docker run -i -v "%cd%":/my-cypress-project -t cypressautomationwithjoanmedia:1.2 --spec 
+3. docker run -i -v "%cd%":/my-cypress-project -w /my-cypress-project -t cypressautomationwithjoanmedia:1.2 --spec 
 cypress/e2e/UserTestCases/*.cy.js
 .................
 Xpath
 npm install -D cypress-xpath
+....................
+Jenkins -> Freestyle workspace.;
 ..................
-Jenkins -> Freestyle workspace.
+
