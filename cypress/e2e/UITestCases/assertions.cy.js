@@ -1,4 +1,4 @@
-describe('ASSERTIONS(regression)',{tags:'@regressionTag'}, () => {
+describe('ASSERTIONS', () => {
     // beforeEach(() => {
     //     cy.visit('https://demoqa.com/radio-button')
     //     cy.intercept({resourceType: /xhr|fetch/},{log:false})

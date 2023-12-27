@@ -1,4 +1,4 @@
-describe('BROWSER,DOM,ARCH COMMANDS(regression)',{tags:'@regressionTag'}, () => {
+describe('BROWSER,DOM,ARCH COMMANDS', () => {
     beforeEach(() => {
         cy.visit('https://www.whatismybrowser.com/es/')
     });

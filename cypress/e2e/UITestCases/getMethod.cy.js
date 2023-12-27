@@ -1,5 +1,5 @@
 
-describe('GET Methods Specs(regression)',{tags:'@regressionTag'}, () => {
+describe('GET Methods Specs', () => {
     beforeEach(() => {
         cy.visit("https://www.saucedemo.com/")
     });

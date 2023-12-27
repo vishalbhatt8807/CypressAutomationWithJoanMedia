@@ -1,4 +1,4 @@
-describe('CUSTOM COMMAND Check(regression)',{tags:'@regressionTag'}, () => {
+describe('CUSTOM COMMAND Check', () => {
     
     beforeEach(()=>{
         cy.visit("/")

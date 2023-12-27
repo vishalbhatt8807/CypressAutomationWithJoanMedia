@@ -7,7 +7,10 @@ describe('Login Functionality Check', () => {;
     it('Validate Standard User Credentials', () => {
         cy.log(cy.get("#user-name").should('have.attr',"placeholder"))
         //Disable log for requests
-        cy.intercept({resourceType:/xhr|fetch/},{log:false})
+        // cy.intercept(
+        //     {resourceType:/xhr|fetch/},
+        //     {log:false})
+        
         cy.get("#user-name").type("standard_user")
         cy.get("#password").type("secret_sauce")
         cy.get("#login-button").click()
@@ -17,7 +20,7 @@ describe('Login Functionality Check', () => {;
     it('Validate Standard UserName but invalid Password', () => {
         cy.log(cy.get("#user-name").should('have.attr',"placeholder"))
         //Disable log for requests
-        cy.intercept({resourceType:/xhr|fetch/},{log:false})
+       // cy.intercept({resourceType:/xhr|fetch/},{log:false})
         cy.get("#user-name").type("standard_user")
         cy.get("#password").type("secret_sauce1")
         cy.get("#login-button").click()
@@ -27,7 +30,7 @@ describe('Login Functionality Check', () => {;
     it('Validate Locked-Out User Credentials', () => {
         cy.log(cy.get("#user-name").should('have.attr',"placeholder"))
         //Disable log for requests
-        cy.intercept({resourceType:/xhr|fetch/},{log:false})
+        //cy.intercept({resourceType:/xhr|fetch/},{log:false})
         cy.get("#user-name").type("locked_out_user")
         cy.get("#password").type("secret_sauce")
         cy.get("#login-button").click()

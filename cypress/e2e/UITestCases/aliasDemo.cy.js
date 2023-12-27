@@ -1,4 +1,4 @@
-describe('ALIAS DEMO(regression)',{tags:'@regressionTag'}, () => {
+describe('ALIAS DEMO', () => {
     
     beforeEach(()=>{
         cy.visit('https://www.google.com')
