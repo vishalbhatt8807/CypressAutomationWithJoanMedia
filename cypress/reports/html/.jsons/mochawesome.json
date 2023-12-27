@@ -1,0 +1,130 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-12-27T12:19:03.807Z",
+    "end": "2023-12-27T12:19:26.685Z",
+    "duration": 22878,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "babeabc3-0241-4731-9a47-78b70f9721ec",
+      "title": "",
+      "fullFile": "cypress/e2e/UITestCases/aliasDemo.cy.js",
+      "file": "cypress/e2e/UITestCases/aliasDemo.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5a8d21e8-1c4b-41ac-a92a-4e50e861b47c",
+          "title": "ALIAS DEMO(regression)",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Alias",
+              "fullTitle": "ALIAS DEMO(regression) Alias",
+              "timedOut": null,
+              "duration": 7703,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.lnXdpd').last().invoke('attr', 'alt').as('headerText');\ncy.get('a.gb_B').eq(0).then($test => {\n  const test1 = $test.text();\n  cy.wrap(test1).as('gmailwrap');\n});",
+              "err": {},
+              "uuid": "43f8d284-cd43-4a1c-9c2a-8800b987f0b7",
+              "parentUUID": "5a8d21e8-1c4b-41ac-a92a-4e50e861b47c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test Alias value",
+              "fullTitle": "ALIAS DEMO(regression) Test Alias value",
+              "timedOut": null,
+              "duration": 4026,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.log(this.headerText);\ncy.log(this.gmailwrap);",
+              "err": {},
+              "uuid": "6a5386e3-bd87-4b4b-b240-0fd96b665799",
+              "parentUUID": "5a8d21e8-1c4b-41ac-a92a-4e50e861b47c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "43f8d284-cd43-4a1c-9c2a-8800b987f0b7",
+            "6a5386e3-bd87-4b4b-b240-0fd96b665799"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 11729,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportPageTitle": "CypressAutomationWithJoanMedia",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": false,
+        "videoOnFailOnly": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
