@@ -1,0 +1,23 @@
+{
+  "name": "cypressautomationwith-joanmedia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open --browser chrome --e2e",
+    "cypress:firefox": "cypress open --browser firefox --e2e",
+    "cypress:rundefault": "cypress run --spec ./cypress/e2e/UITestCases/login.cy.js ",
+    "cypress:runchrome": "cypress run --browser chrome --headed --spec ./cypress/e2e/UITestCases/**.cy.js ",
+    "cypress:runchromeheadless": "cypress run --browser chrome --headless --spec ./cypress/e2e/**/**.cy.js ",
+    "cypress:withdashboard": "cypress run --browser chrome --headless --spec ./cypress/e2e/UITestCases/**.cy.js --record --key 4edfe149-03ba-41ec-80c3-b25ebcfff749",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:browserstack": "browserstack-cypress run --spec ./cypress/e2e/UITestCases/homesoucetest.cy.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress-grep": "^3.0.4",
+    "cypress-mochawesome-reporter": "^3.7.0"
+  }
+}

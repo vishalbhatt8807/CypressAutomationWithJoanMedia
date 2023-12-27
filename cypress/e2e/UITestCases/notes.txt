@@ -1,0 +1,63 @@
+// Mocha awesome reports ->https://www.npmjs.com/package/cypress-mochawesome-reporter
+1. npm i --save-dev cypress-mochawesome-reporter
+2. cypress.config.js ->
+const { defineConfig } = require('cypress');
+
+module.exports = defineConfig({
+  reporter: 'cypress-mochawesome-reporter',
+    reporterOptions: {
+    charts: true,
+    reportPageTitle: 'custom-title',
+    embeddedScreenshots: true,
+    inlineAssets: true,
+    saveAllAttempts: false,
+  },
+  e2e: {
+    setupNodeEvents(on, config) {
+      require('cypress-mochawesome-reporter/plugin')(on);
+    },
+  },
+});
+3. cypress/support/e2e.js
+import 'cypress-mochawesome-reporter/register';
+........................................
+For BrowserStack configuration -> https://automate.browserstack.com/dashboard/v2/getting-started
+1. Login in Browser Stack and download plugin
+2. npm install -g browserstack-cypress-cli in terminal
+3. run command npx browserstack-cypress init for browserstack.json file update detail as per your
+requirement and 
+4. Package.json create command."cypress:browserstack": "browserstack-cypress run --spec ./cypress/e2e/UITestCases/homesoucetest.cy.js"
+5. run using npm run cypress:browserstack command. 
+.............................................
+Docker setup with cypress.
+1. refer https://github.com/cypress-io/cypress-docker-images/tree/master/included
+docker pull cypress/included:12.3.0 or you can use alpine but you need to include all cypress.
+2. docker run -it --entrypoint=cypress cypress/included:12.3.0
+3. docker ps -> to check running contianer.
+4. to run in container -> docker run -it -v "%cd%":/e2e -w /e2e cypress/included:12.3.0 --spec cypress/e2e/UITestCases/*.cy.js --browser chrome
+5. After running if need to check again logs  -> 
+5.1 docker ps -a
+5.2 docker logs (container id)
+................................
+Cypress-grep (Grouping your test cases) https://www.npmjs.com/package/@cypress/grep
+npm i -D cypress-grep (Version >= 3 of @cypress/grep only supports Cypress >= 10.
+)
+...................................
+Docker images ->
+1. Create dockerfile (.DockerFile) and write below code.
+#BASE Image either alipne or from https://github.com/cypress-io/cypress-docker-images/tree/master/browsers
+FROM cypress/browsers:node18.12.0-chrome107
+#Create a folder where the project will run
+RUN mkdir /my-cypress-project
+#We make it workdirectory
+WORKDIR /my-cypress-project
+#Lets copy the essentials files that we MUST use to run our script.
+COPY ./package.json .
+COPY ./cypress.config.json .
+COPY ./cypress ./cypress
+#Install the cypress dependencies in the work directory
+RUN npm Install
+#Executable command in the container will use [EXEC FORM]
+ENTRYPOINT [ "npx","cypress","run" ]
+#With the CMD in the case,we can specify more parameters to the last entrypoint.
+CMD [ "" ]
