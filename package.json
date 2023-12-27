@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "cypress:open": "cypress open --browser chrome --e2e",
-    "cypress:firefox": "cypress open --browser firefox --e2e",
+    "cypress:chrome": "cypress run --browser chrome --spec ./cypress/e2e/UITestCases/login.cy.js",
+    "cypress:firefox": "cypress run --browser firefox --spec ./cypress/e2e/UITestCases/login.cy.js",
     "cypress:rundefault": "cypress run --spec ./cypress/e2e/UITestCases/login.cy.js ",
     "cypress:runchrome": "cypress run --browser chrome --headed --spec ./cypress/e2e/UITestCases/**.cy.js ",
     "cypress:runchromeheadless": "cypress run --browser chrome --headless --spec ./cypress/e2e/**/**.cy.js ",
