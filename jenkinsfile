@@ -1,35 +1,37 @@
 pipeline{
     agent any
+
     parameters{
-        string(name: 'SPEC', defaultValue: 'cypress/e2e/**/**', description:'This is the path of spec files')
-        choice(name: 'BROWSER', choices:['chrome','edge','firefox'],description:'Select the browser want to execute scipt in selective browser')
+        string(name:'SPEC',defaultValue:'cypress/e2e/**/**',description:'This is spec files path')
+        choice(name:'BROWSER',choices:['chrome','firefox','edge'], description:'select browser to execute script')
     }
     options{
         ansiColor('xterm')
     }
+
     stages{
         stage('Building'){
-           steps{
-            echo 'building the application'
-           }     
+            steps{
+                echo 'Building the application'
+            }
         }
         stage('Testing'){
             steps{
-                bat "npm i"
-                bat "npx cypress run --browser ${BROWSER} --spec ${SPEC}"
+              bat "npm i"
+              bat "npx cypress run --browser ${BROWSER} --spec ${SPEC}" 
             }
         }
-        stage("Deploying"){
+        stage('Deploying'){
             steps{
-                echo "Deploying the application"
+                echo "Deploy your application"
             }
         }
-        post{
-            always{
-                publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
-            }
-        }
-
-
     }
+
+    post{
+        always{
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+        }
+    }
+
 }
